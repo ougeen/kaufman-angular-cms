@@ -38,8 +38,19 @@
   padding-left: 10px;
 }
 
-.tree-panel{
-  height: 500px;
+.tree-panel-fix {
+  .tree-panel {
+    margin: 0;
+    width: 300px;
+    position: fixed;
+    top: 143px;
+    left: 220px;
+    bottom: 20px;
+  }
+
+  & ~ .tree-item-content {
+    margin-left: 320px;
+  }
 }
 
 .search-container{

@@ -1,0 +1,60 @@
+<div class="tree-panel-fix" ng-controller="treeCtrl">
+    <div ba-panel ba-panel-title="Drag & Drop" ba-panel-class="with-scroll tree-panel">
+        <div js-tree="dragConfig" ng-model="dragData"></div>
+    </div>
+</div>
+
+<div class="tree-item-content" ng-controller="editPageCtrl as selectpickerVm">
+    <div class="panel animated zoomIn">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title">{{ pageName }}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input01">Page name</label>
+                        <input type="text" ng-model="pageName" class="form-control" id="input01" placeholder="Page name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Locked</label>
+                                <div>
+                                    <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Hidden</label>
+                                <div>
+                                    <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input02">Page link</label>
+                        <input type="text" class="form-control" id="input02" placeholder="Page link">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Page template</label>
+                        <select class="form-control" title="Page template"
+                                ng-model="selectpickerVm.standardSelected"
+                                ng-options="item as item.label for item in selectpickerVm.standardSelectItems">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
