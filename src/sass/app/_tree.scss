@@ -1,3 +1,5 @@
+//@import "../theme/conf/colorScheme/mint";
+
 .tree-node{
   line-height: 25px;
   cursor: pointer;
@@ -38,14 +40,32 @@
   padding-left: 10px;
 }
 
-.tree-panel-fix {
+.search-container{
+  margin-top: 10px;
+}
+
+.panel.tree-panel-fix {
+  margin: 0;
+  width: 300px;
+  position: fixed;
+  top: 143px;
+  transition: all .3s linear 0s;
+  left: 200px;
+  bottom: 20px;
+
+  > .panel-body {
+    padding: 0;
+  }
+
   .tree-panel {
-    margin: 0;
-    width: 300px;
-    position: fixed;
-    top: 143px;
-    left: 220px;
-    bottom: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    box-shadow: none;
+    background: none;
+    border-radius: 0;
   }
 
   & ~ .tree-item-content {
@@ -53,6 +73,59 @@
   }
 }
 
-.search-container{
-  margin-top: 10px;
+toggle-tree {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  overflow: hidden;
+  display: block;
+  background-color: $sidebar;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+  color: #fff;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  width: 52px;
+  font-size: 25px;
+  height: 52px;
+  z-index: 101;
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+
+@media (min-width: $resM + 1px) {
+  toggle-tree {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .panel.tree-panel-fix {
+    left: 70px;
+  }
+}
+
+@media (max-width: $resM) {
+  .panel.tree-panel-fix {
+    z-index: 100;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    top: 65px;
+    max-width: 95%;
+    transform: translate3d(100%, 0, 0);
+    background-color: #fff;
+
+    &.toggle {
+      transform: translate3d(0, 0, 0);
+    }
+
+
+    & ~ .tree-item-content {
+      margin-left: 0;
+    }
+  }
 }

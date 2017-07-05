@@ -1,60 +1,313 @@
-<div class="tree-panel-fix" ng-controller="treeCtrl">
-    <div ba-panel ba-panel-title="Drag & Drop" ba-panel-class="with-scroll tree-panel">
-        <div js-tree="dragConfig" ng-model="dragData"></div>
+<div data-tree-panel-toggle class="tree-panel-fix panel" ng-controller="treeCtrl">
+    <div class="panel-body">
+        <div ba-panel ba-panel-title="Select a module" ba-panel-class="with-scroll tree-panel">
+            <div js-tree="dragConfig" ng-model="dragData"></div>
+        </div>
     </div>
 </div>
 
 <div class="tree-item-content" ng-controller="editPageCtrl as selectpickerVm">
-    <div class="panel animated zoomIn">
-        <div class="panel-heading clearfix">
-            <h3 class="panel-title">{{ pageName }}</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="input01">Page name</label>
-                        <input type="text" ng-model="pageName" class="form-control" id="input01" placeholder="Page name">
+    <div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">Main info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input01">Page name</label>
+                            <input type="text" ng-model="pageName" class="form-control" id="input01" placeholder="Page name">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Locked</label>
-                                <div>
-                                    <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Hidden</label>
-                                <div>
-                                    <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input02">Page link</label>
+                            <input type="text" class="form-control" id="input02" placeholder="Page link">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Page template</label>
+                            <select class="form-control" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">META Keywords</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input03">Editable area</label>
+                            <select class="form-control" id="input03" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="input04">META Keywords</label>
+                            <input type="text" class="form-control" id="input04" placeholder="META Keywords">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">nav bar</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input05">Editable area</label>
+                            <select class="form-control" id="input05" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="textarea01">Script</label>
+                            <textarea placeholder="Default Input" class="form-control" id="textarea01"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">breadcrumb</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input06">Editable area</label>
+                            <select class="form-control" id="input06" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="textarea02">Script</label>
+                            <textarea placeholder="Default Input" class="form-control" id="textarea02"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">content</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input07">Editable area</label>
+                            <select class="form-control" id="input07" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="input02">Page link</label>
-                        <input type="text" class="form-control" id="input02" placeholder="Page link">
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">content_special</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input08">Editable area</label>
+                            <select class="form-control" id="input08" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Page template</label>
-                        <select class="form-control" title="Page template"
-                                ng-model="selectpickerVm.standardSelected"
-                                ng-options="item as item.label for item in selectpickerVm.standardSelectItems">
-                        </select>
+            </div>
+        </div>
+        <div class="panel panel-default animated zoomIn">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">footer</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="input09">Editable area</label>
+                            <select class="form-control" id="input09" title="Page template"
+                                    ng-model="selectpickerVm.standardSelected"
+                                    ng-options="item as item.label for item in selectpickerVm.standardSelectItems"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Locked</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hidden</label>
+                                    <div>
+                                        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s2" class="ng-isolate-scope"></ba-switcher>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="textarea03">Script</label>
+                            <textarea placeholder="Default Input" class="form-control" id="textarea03"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<toggle-tree btn-toggle="data-tree-panel-toggle">
+    <i class="ion-network"></i>
+</toggle-tree>

@@ -72,7 +72,6 @@ a.al-sidebar-list-link {
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  text-overflow: ellipsis;
   padding-right: 10px;
 
   &:hover {
@@ -86,6 +85,11 @@ a.al-sidebar-list-link {
     width: 16px;
     display: inline-block;
     font-size: 130%;
+
+    & ~ span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   b {
     display: block;
